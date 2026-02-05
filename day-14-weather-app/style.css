@@ -1,0 +1,77 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial;
+}
+
+body {
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background: linear-gradient(135deg,#219092,#000000);
+
+}
+
+/* Card */
+
+.container {
+
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+
+    background:#3d7a7b;
+
+    box-shadow:
+        10px 10px 20px #a3b1c6,
+        -10px -10px 20px #28a98b;
+}
+
+/* Input */
+
+input {
+
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+
+    background:#e0e5ec;
+
+    box-shadow:
+        inset 5px 5px 10px #a3c6ba,
+        inset -5px -5px 10px #ffffff;
+}
+
+/* Button */
+
+button {
+
+    
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+   
+
+    background:#e0e5ec;
+
+    box-shadow:
+        6px 6px 12px #a3b1c6,
+        -6px -6px 12px #246250;
+
+    transition:0.2s;
+}
+
+/* Press effect */
+
+button:active {
+
+    box-shadow:
+        inset 6px 6px 12px #a3b1c6,
+        inset -6px -6px 12px #ffffff;
+}
