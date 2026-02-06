@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag Drop Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="add-task">
+    <input type="text" id="taskInput" placeholder="Enter new task">
+    <button onclick="addTask()">Add Task</button>
+</div>
+<div class="board">
+
+    <div class="column" id="todo">
+        <h3>Todo</h3>
+        <div class="card" draggable="true">Learn JavaScript</div>
+        <div class="card" draggable="true">Build Projects</div>
+    </div>
+
+    <div class="column" id="doing">
+        <h3>Doing</h3>
+    </div>
+
+    <div class="column" id="done">
+        <h3>Done</h3>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
