@@ -1,0 +1,115 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+/* BODY */
+
+body {
+
+    background: #111827;
+    color: white;
+}
+
+
+/* CONTAINER */
+
+.container {
+
+    padding: 40px;
+    text-align: center;
+}
+
+
+/* GALLERY GRID */
+
+.gallery {
+
+    margin-top: 20px;
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+
+/* GALLERY IMAGES */
+
+.gallery img {
+
+    width: 100%;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    border: 3px dashed rgb(236, 229, 229); /* border around each image */
+
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+
+    transform: scale(1.05);
+}
+
+
+/* MODAL OVERLAY */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.9);
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* MODAL IMAGE */
+
+#modalImg {
+
+    max-width: 80%;
+    max-height: 80%;
+
+    border-radius: 10px;
+
+    border: 3px dashed rgb(250, 244, 244);
+}
+
+
+/* CLOSE BUTTON */
+
+#close {
+
+    position: absolute;
+
+    top: 20px;
+    right: 40px;
+
+    font-size: 40px;
+
+    color: white;
+
+    cursor: pointer;
+}

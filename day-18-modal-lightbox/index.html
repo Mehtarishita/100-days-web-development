@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title> Day 18 - Modal Lightbox </title>
+        <link rel ="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+        <h2> Image Gallery(Click to Expand)</h2>
+    <div id="gallery" class="gallery">
+        <img src = "https://picsum.photos/300/200?1">
+            <img src="https://picsum.photos/300/200?2">
+            <img src="https://picsum.photos/300/200?3">
+            <img src="https://picsum.photos/300/200?4">
+    </div>
+    </div>
+    <!-- Modal (Lightbox) -->
+    <div id="modal" class="modal">
+
+        <span id="close">&times;</span>
+
+        <img id="modalImg">
+
+    </div>
+
+    <script src="script.js"></script>
+    </body>
+</html>
