@@ -1,0 +1,35 @@
+
+body {
+
+    margin:0;
+    height:100vh;
+
+    background:black;
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:Arial;
+
+    overflow:hidden;
+}
+
+.trail {
+
+    position:fixed;
+
+    width:15px;
+    height:15px;
+
+    border-radius:50%;
+
+    background:rgb(252, 23, 244);
+
+    pointer-events:none;
+
+    box-shadow:0 0 15px rgb(206, 51, 201), 0 0 30px rgb(236, 44, 216);
+
+    transform:translate(-50%, -50%);
+}
