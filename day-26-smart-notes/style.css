@@ -1,0 +1,97 @@
+body {
+
+    margin:0;
+    background:#0f172a;
+
+    font-family:Arial;
+
+    display:flex;
+    justify-content:center;
+
+    padding:40px;
+
+    color:white;
+}
+
+
+/* APP CONTAINER */
+
+.app {
+
+    width:600px;
+}
+
+
+/* HEADER */
+
+header {
+
+    text-align:center;
+    margin-bottom:20px;
+}
+
+
+/* INPUT AREA */
+
+.input-section {
+
+    display:flex;
+    gap:10px;
+}
+
+input {
+
+    flex:1;
+    padding:12px;
+
+    border-radius:8px;
+    border:none;
+
+    background:#1e293b;
+    color:white;
+}
+
+button {
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#6366f1;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+
+/* NOTES GRID */
+
+.notes-grid {
+
+    margin-top:20px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+
+    gap:15px;
+}
+
+
+/* NOTE CARD */
+
+.note {
+
+    background:#1e293b;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
