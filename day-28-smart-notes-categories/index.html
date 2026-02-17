@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Notes Categories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <h2>🧠 Smart Notes</h2>
+
+    <div class="input-section">
+
+        <input id="noteInput" placeholder="Write note...">
+
+        <select id="categoryInput">
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Ideas">Ideas</option>
+        </select>
+
+        <button onclick="addNote()">Add</button>
+
+    </div>
+
+    <select id="filterCategory">
+        <option value="">All Categories</option>
+        <option>Work</option>
+        <option>Personal</option>
+        <option>Ideas</option>
+    </select>
+
+    <div id="notes" class="notes-grid"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
