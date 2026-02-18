@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>App Layout</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">💜 MyApp</div>
+
+        <div class="nav-links">
+
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('notes')">Notes</button>
+            <button onclick="showSection('profile')">Profile</button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CONTENT AREA -->
+
+    <div class="content">
+
+        <div id="home" class="section active">
+            <h2>🏠 Home Section</h2>
+        </div>
+
+        <div id="notes" class="section">
+            <h2>🧠 Notes Section</h2>
+        </div>
+
+        <div id="profile" class="section">
+            <h2>👤 Profile Section</h2>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+/* RESET */
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+
+/* BODY */
+
+body {
+
+    min-height:100vh;
+
+    background: linear-gradient(135deg,#e9d5ff,#c4b5fd,#a78bfa);
+}
+
+
+/* NAVBAR */
+
+.navbar {
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 30px;
+
+    backdrop-filter: blur(15px);
+
+    background: rgba(255,255,255,0.3);
+}
+
+
+/* LOGO */
+
+.logo {
+
+    font-weight:bold;
+    color:#4c1d95;
+}
+
+
+/* NAV BUTTONS */
+
+.nav-links button {
+
+    margin-left:10px;
+
+    padding:10px 20px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background: linear-gradient(135deg,#a78bfa,#7c3aed);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.nav-links button:hover {
+
+    transform:scale(1.05);
+}
+
+
+/* CONTENT WRAPPER */
+
+.content {
+
+    margin-top:120px;
+
+    display:flex;
+    justify-content:center;
+}
+
+
+/* GLASS CARD SECTIONS */
+
+.section {
+
+    display:none;
+
+    width:600px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    backdrop-filter: blur(20px);
+
+    background: rgba(255,255,255,0.25);
+
+    text-align:center;
+}
+
+
+/* ACTIVE SECTION */
+
+.section.active {
+
+    display:block;
+}
