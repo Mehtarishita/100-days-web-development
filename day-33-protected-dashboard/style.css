@@ -1,0 +1,114 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body {
+
+    min-height:100vh;
+
+    background: linear-gradient(135deg,#e9d5ff,#c4b5fd,#a78bfa);
+}
+
+
+/* LOGIN CENTER */
+
+.center {
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card {
+
+    backdrop-filter: blur(20px);
+
+    background: rgba(255,255,255,0.25);
+
+    padding:40px;
+
+    border-radius:20px;
+
+    width:300px;
+}
+
+input {
+
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+
+    border:none;
+    border-radius:10px;
+}
+
+button {
+
+    margin-top:15px;
+    padding:12px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#7c3aed;
+    color:white;
+
+    cursor:pointer;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+
+    position:fixed;
+    top:0;
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+
+    padding:15px 30px;
+
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.3);
+}
+
+.nav-links button {
+
+    margin-left:10px;
+}
+
+
+/* CONTENT */
+
+.content {
+
+    margin-top:120px;
+
+    display:flex;
+    justify-content:center;
+}
+
+.section {
+
+    display:none;
+
+    width:600px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.25);
+}
+
+.section.active {
+
+    display:block;
+}
