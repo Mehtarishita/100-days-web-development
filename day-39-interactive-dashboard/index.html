@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>👩‍💻 Users Dashboard</h1>
+
+    <input id="search" placeholder="Search users...">
+
+    <button id="loadBtn">Load Users</button>
+
+    <div id="users" class="grid"></div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span id="close">&times;</span>
+        <div id="modalData"></div>
+    </div>
+</div>
+
+<script src="api.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
