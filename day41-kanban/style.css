@@ -1,0 +1,55 @@
+body {
+margin:0;
+font-family:Inter, sans-serif;
+background:#f4f6fb;
+}
+
+header {
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 24px;
+background:white;
+box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+button {
+background:#6366f1;
+color:white;
+border:none;
+padding:10px 14px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.board {
+display:flex;
+gap:20px;
+padding:20px;
+}
+
+.column {
+flex:1;
+background:#ffffff;
+border-radius:14px;
+padding:16px;
+box-shadow:0 6px 14px rgba(0,0,0,0.05);
+}
+
+.task {
+background:#f9fafc;
+padding:12px;
+margin-bottom:12px;
+border-radius:10px;
+cursor:grab;
+transition:0.2s;
+}
+
+.task:hover {
+transform:translateY(-2px);
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.task.dragging {
+opacity:0.5;
+}
