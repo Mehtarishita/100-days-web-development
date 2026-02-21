@@ -1,0 +1,15 @@
+{
+  "name": "100days",
+  "version": "1.0.0",
+  "description": "This repository contains 100 mini-projects, each designed to improve your web development skills. Each project is organized by day and includes an `index.html`, `script.js`, and `style.css` file.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.19.0"
+  }
+}
