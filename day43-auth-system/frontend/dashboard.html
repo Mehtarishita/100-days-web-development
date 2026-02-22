@@ -1,0 +1,9 @@
+<h1>Dashboard</h1>
+<div id="data"></div>
+<script type="module">
+import { API } from "./api.js";
+
+const data = await API.getDashboard();
+
+document.getElementById("data").innerText = data.message;
+</script>
