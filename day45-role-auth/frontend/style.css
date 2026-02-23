@@ -1,0 +1,103 @@
+/* Glass effect styles */
+body {
+    background: linear-gradient(to right, #008080, #ffffff); /* Teal green to white gradient */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Apply box-sizing to all elements */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
+}
+
+button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.2); /* White with transparency */
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.glass-container h1 {
+    color: #008080; /* Teal green */
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.glass-container p {
+    color: #ffffff; /* White */
+    font-size: 1rem;
+}
+
+/* Dashboard styles */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.dashboard-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-card h2 {
+    color: #008080; /* Teal green */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.dashboard-card p {
+    color: #ffffff; /* White */
+    font-size: 1rem;
+}
+
+.dashboard-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #008080;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.dashboard-card a:hover {
+    background: #005f5f; /* Darker teal */
+}

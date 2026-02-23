@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+
+<h2 id="welcome"></h2>
+<button onclick="checkAdmin()">Check Admin Panel</button>
+<button onclick="logout()">Logout</button>
+
+<script>
+const token = localStorage.getItem("token");
+
+if (!token) {
+  window.location.href = "index.html";
+}
+
+fetch("http://localhost:5000/dashboard", {
+  headers: { Authorization: token }
+})
+.then(res => res.json())
+.then(data => {
+  document.getElementById("welcome").innerText = data.message;
+});
+
+function checkAdmin() {
+  fetch("http://localhost:5000/admin", {
+    headers: { Authorization: token }
+  })
+  .then(res => res.json())
+  .then(data => alert(data.message));
+}
+
+function logout() {
+  localStorage.removeItem("token");
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
