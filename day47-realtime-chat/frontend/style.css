@@ -1,0 +1,52 @@
+body{
+ margin:0;
+ font-family:sans-serif;
+ background:linear-gradient(135deg,#667eea,#764ba2);
+ height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+}
+
+.chat-container{
+ display:flex;
+ width:900px;
+ height:500px;
+ backdrop-filter:blur(20px);
+ background:rgba(255,255,255,0.1);
+ border-radius:20px;
+ overflow:hidden;
+}
+
+.sidebar{
+ width:200px;
+ background:rgba(0,0,0,0.2);
+ padding:15px;
+ color:white;
+}
+
+.chat-area{
+ flex:1;
+ display:flex;
+ flex-direction:column;
+ padding:15px;
+}
+
+#messages{
+ flex:1;
+ overflow-y:auto;
+ color:white;
+}
+
+input{
+ padding:10px;
+ border-radius:10px;
+ border:none;
+}
+
+button{
+ padding:10px;
+ border:none;
+ border-radius:10px;
+ cursor:pointer;
+}
