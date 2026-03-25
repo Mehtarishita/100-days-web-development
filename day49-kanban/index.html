@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlowBoard — Kanban</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-icon">⬡</span>
+          <span class="logo-text">FlowBoard</span>
+        </div>
+        <div class="project-badge">
+          <span class="dot live"></span>
+          <span id="live-label">Live Sync</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="stats-bar">
+          <div class="stat"><span id="total-tasks">0</span><label>Total</label></div>
+          <div class="stat"><span id="done-tasks">0</span><label>Done</label></div>
+          <div class="stat progress-stat">
+            <div class="mini-progress"><div class="mini-fill" id="progress-fill"></div></div>
+            <label id="progress-pct">0%</label>
+          </div>
+        </div>
+        <button class="btn-add-task" id="btn-open-modal">+ New Task</button>
+      </div>
+    </header>
+
+    <!-- Board -->
+    <main class="board-wrapper">
+      <div class="board" id="board">
+        <!-- Columns injected by JS -->
+      </div>
+    </main>
+
+    <!-- Task Modal -->
+    <div class="modal-overlay hidden" id="modal-overlay">
+      <div class="modal" id="modal">
+        <div class="modal-header">
+          <h2 id="modal-title">New Task</h2>
+          <button class="modal-close" id="modal-close">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="field">
+            <label>Title <span class="req">*</span></label>
+            <input type="text" id="task-title" placeholder="What needs to be done?" />
+          </div>
+          <div class="field">
+            <label>Description</label>
+            <textarea id="task-desc" placeholder="Add more details..." rows="3"></textarea>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label>Priority</label>
+              <div class="select-wrapper">
+                <select id="task-priority">
+                  <option value="low">🟢 Low</option>
+                  <option value="medium" selected>🟡 Medium</option>
+                  <option value="high">🔴 High</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label>Column</label>
+              <div class="select-wrapper">
+                <select id="task-column">
+                  <option value="backlog">Backlog</option>
+                  <option value="todo" selected>To Do</option>
+                  <option value="inprogress">In Progress</option>
+                  <option value="done">Done</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Tags (comma separated)</label>
+            <input type="text" id="task-tags" placeholder="e.g. frontend, urgent, bug" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-ghost" id="btn-cancel">Cancel</button>
+          <button class="btn-primary" id="btn-save-task">Save Task</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container" id="toast-container"></div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
