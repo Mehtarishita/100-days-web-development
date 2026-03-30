@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snip — URL Shortener</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="noise"></div>
+  <div class="grid-bg"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-mark">⌁</span>
+        <span class="logo-text">Snip</span>
+        <span class="logo-tag">URL Shortener</span>
+      </div>
+      <div class="header-stats" id="headerStats">
+        <div class="stat-pill"><span id="totalLinks">0</span> links</div>
+        <div class="stat-pill"><span id="totalClicks">0</span> clicks</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Shorten Form -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">
+        Shorten.<br/>
+        <span class="accent">Track.</span><br/>
+        Share.
+      </h1>
+      <p class="hero-sub">Powerful link shortening with real-time analytics, QR codes, and custom slugs.</p>
+
+      <div class="shorten-card">
+        <div class="input-group">
+          <div class="url-input-wrap">
+            <span class="input-icon">🔗</span>
+            <input type="text" id="urlInput" placeholder="Paste your long URL here..." autocomplete="off" />
+          </div>
+          <button class="shorten-btn" id="shortenBtn">
+            <span>Shorten</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <!-- Options row -->
+        <div class="options-row">
+          <div class="option-group">
+            <label>Custom slug</label>
+            <div class="slug-input-wrap">
+              <span class="slug-prefix">snip/</span>
+              <input type="text" id="slugInput" placeholder="my-link" maxlength="30" />
+            </div>
+          </div>
+          <div class="option-group">
+            <label>Link title</label>
+            <input type="text" id="titleInput" placeholder="Optional title" />
+          </div>
+          <div class="option-group">
+            <label>Expires in</label>
+            <select id="expiresIn">
+              <option value="never">Never</option>
+              <option value="1d">1 Day</option>
+              <option value="7d">7 Days</option>
+              <option value="30d">30 Days</option>
+              <option value="90d">90 Days</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-row hidden" id="resultRow">
+          <div class="result-link">
+            <span class="result-label">Your short link</span>
+            <a class="result-url" id="resultUrl" href="#" target="_blank"></a>
+          </div>
+          <div class="result-actions">
+            <button class="result-btn" id="copyBtn" title="Copy">
+              <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy
+            </button>
+            <button class="result-btn" id="qrBtn" title="QR Code">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM17 17h3v3h-3zM14 20h3"/></svg>
+              QR Code
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Links Table -->
+  <section class="links-section">
+    <div class="section-header">
+      <h2 class="section-title">Your Links</h2>
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Search links..." />
+      </div>
+    </div>
+
+    <div class="links-table" id="linksTable">
+      <div class="table-header">
+        <span>Original URL</span>
+        <span>Short Link</span>
+        <span>Clicks</span>
+        <span>Created</span>
+        <span>Expires</span>
+        <span>Actions</span>
+      </div>
+      <div class="table-body" id="tableBody">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">⌁</div>
+          <p>No links yet. Shorten your first URL above!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analytics Modal -->
+  <div class="modal-overlay hidden" id="analyticsModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <h2 id="analyticsTitle">Link Analytics</h2>
+          <p class="modal-sub" id="analyticsSlug"></p>
+        </div>
+        <button class="modal-close" id="closeAnalytics">×</button>
+      </div>
+      <div class="modal-body">
+        <!-- Stats row -->
+        <div class="analytics-stats">
+          <div class="analytics-stat">
+            <span class="stat-value" id="statTotal">0</span>
+            <span class="stat-label">Total Clicks</span>
+          </div>
+          <div class="analytics-stat">
+            <span class="stat-value" id="statToday">0</span>
+            <span class="stat-label">Today</span>
+          </div>
+          <div class="analytics-stat">
+            <span class="stat-value" id="statDevices">—</span>
+            <span class="stat-label">Top Device</span>
+          </div>
+          <div class="analytics-stat">
+            <span class="stat-value" id="statBrowser">—</span>
+            <span class="stat-label">Top Browser</span>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart-wrap">
+          <h3 class="chart-title">Clicks — Last 7 Days</h3>
+          <canvas id="clickChart" height="80"></canvas>
+        </div>
+
+        <!-- Device + Browser breakdown -->
+        <div class="breakdown-row">
+          <div class="breakdown-card">
+            <h4>By Device</h4>
+            <div id="deviceBreakdown"></div>
+          </div>
+          <div class="breakdown-card">
+            <h4>By Browser</h4>
+            <div id="browserBreakdown"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Modal -->
+  <div class="modal-overlay hidden" id="qrModal">
+    <div class="modal modal-sm">
+      <div class="modal-header">
+        <h2>QR Code</h2>
+        <button class="modal-close" id="closeQr">×</button>
+      </div>
+      <div class="modal-body" style="text-align:center;">
+        <div class="qr-wrap">
+          <img id="qrImage" src="" alt="QR Code" />
+        </div>
+        <p class="qr-url" id="qrUrl"></p>
+        <button class="btn-primary" id="downloadQr">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download QR
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
