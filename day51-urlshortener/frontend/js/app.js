@@ -43,7 +43,7 @@ async function handleShorten() {
     });
 
     // Show result
-    const shortUrl = `http://localhost:5001/${url.slug}`;
+    const shortUrl = `https://url-shortner-free-backend.vercel.app/${url.slug}`;
     resultUrl.textContent = shortUrl;
     resultUrl.href = shortUrl;
     resultRow.classList.remove('hidden');
@@ -83,7 +83,7 @@ document.getElementById('copyBtn').addEventListener('click', () => {
 document.getElementById('qrBtn').addEventListener('click', () => {
   const qr = resultRow.dataset.qr;
   const slug = resultRow.dataset.slug;
-  if (qr) showQrModal(qr, `http://localhost:5001/${slug}`);
+  if (qr) showQrModal(qr, `https://url-shortner-free-backend.vercel.app/${slug}`);
 });
 
 // ---- Search ----

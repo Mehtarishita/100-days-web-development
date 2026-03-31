@@ -1,4 +1,4 @@
-const BASE = 'http://localhost:5001/api';
+const BASE = 'https://url-shortner-free-backend.vercel.app/api';
 
 export const urlService = {
   async getAll() {

@@ -34,7 +34,7 @@ export function renderLinks(urls, query = '') {
 
     const createdAt = new Date(url.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
     const expiresHtml = getExpiresHtml(url.expiresAt);
-    const shortUrl = `http://localhost:5001/${url.slug}`;
+    const shortUrl = `https://url-shortner-free-backend.vercel.app/${url.slug}`;
 
     row.innerHTML = `
       <div class="row-original">
@@ -77,7 +77,7 @@ export function renderLinks(urls, query = '') {
     // QR
     row.querySelector('.qr-btn').addEventListener('click', (e) => {
       const btn = e.currentTarget;
-      showQrModal(btn.dataset.qr, `http://localhost:5001/${btn.dataset.slug}`);
+      showQrModal(btn.dataset.qr, `https://url-shortner-free-backend.vercel.app/${btn.dataset.slug}`);
     });
 
     // Analytics
