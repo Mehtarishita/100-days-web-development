@@ -7,24 +7,27 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
+// ✅ CORS fix — origin must be string '*' not array ['*']
 app.use(cors({
-  origin: ['*'],
-  methods: ['GET', 'POST', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type']
+  origin: '*',
+  methods: ['GET', 'POST', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// ✅ Handle browser preflight requests
+app.options('*', cors());
+
 app.use(express.json());
 
 // Routes
 app.use('/api/urls', require('./routes/urls'));
-app.use('/', require('./routes/redirect')); // short link redirect
+app.use('/', require('./routes/redirect'));
 
 // Health
 app.get('/api/health', (req, res) => {
   res.json({ status: '🔗 URL Shortener API running', timestamp: new Date().toISOString() });
 });
 
-// Connect + Start
 const PORT = process.env.PORT || 5001;
 
 mongoose.connect(process.env.MONGO_URI, {
